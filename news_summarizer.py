@@ -1,9 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
 import openai
-
+import yaml
+config = yaml.safe_load(open("config.yaml"))
 # OpenAI API Key
-openai.api_key = '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'
+openai.api_key = config['openai_apikey']
 def fetch_news():
     url = 'https://www.cricbuzz.com/cricket-news/latest-news'
     response = requests.get(url)
